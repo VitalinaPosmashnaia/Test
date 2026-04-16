@@ -10,11 +10,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm' # Додаємо кешування для швидкості
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci # Замість install використовуємо ci для чистої збірки
+
+      - name: Fix permissions
+        run: chmod +x node_modules/.bin/vite # Примусово даємо права на запуск vite
+
       - name: Run build
-        run: npx vite build
+        run: npm run build
