@@ -20,9 +20,14 @@ initTitle();
 console.log(`%c[UniDone]%c Додаток запущено в режимі: ${import.meta.env.MODE}`, "color: #4CAF50; font-weight: bold", "color: inherit");
 
 window.sendTestEvent = function() {
-    posthog.capture('button_clicked', {
-        message: 'Користувач натиснув на кнопку!'}
-    );
-
-    alert("Подія 'button_clicked' відправлена до PostHog!");
+    // Перевіряємо, чи PostHog завантажився
+    if (window.posthog) {
+        posthog.capture('button_clicked', {
+            message: 'Користувач натиснув на кнопку!',
+            lab_number: 4
+        });
+        alert("Подія 'button_clicked' відправлена до PostHog!");
+    } else {
+        console.error("PostHog ще не завантажився. Зачекайте секунду.");
+    }
 }
