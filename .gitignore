@@ -1,0 +1,34 @@
+# Залежності (найважливіше!)
+node_modules/
+.pnpm-store/
+
+# Артефакти збірки (папка, яку створює npm run build)
+dist/
+dist-ssr/
+*.local
+
+# Локальні змінні оточення (щоб не "палити" паролі та ключі на GitHub)
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Логи помилок
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Налаштування редакторів (VS Code, WebStorm)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Системні файли (Mac та Windows)
+.DS_Store
+Thumbs.db
