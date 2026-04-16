@@ -17,12 +17,26 @@
     </head>
 
     <body> 
-        <h1>Лабораторна рбота №5</h1>
+        <h1>Лабораторна робота №5</h1>
+        <h2>Автоматизація збірки проєкту та управління артефактами</h2>
 
-        <h2>Автоматизація збірки проєкту та упрпавління артефактами</h2>
-
-        <button onclick="sendTestEvent()" style="padding: 10px 20px; background-color: #608dba; color: white; border: none; cursor: pointer;">Click on me!</button>
+        <button id="test-btn" style="padding: 10px 20px; background-color: #608dba; color: white; border: none; cursor: pointer;">
+            Click on me!
+        </button>
     
+        <script>
+            // Додаємо функцію безпосередньо в скрипт
+            document.getElementById('test-btn').addEventListener('click', function() {
+                if (window.posthog) {
+                    posthog.capture('test_button_clicked', { 
+                        lab: 5,
+                        user: 'Vitalina' 
+                    });
+                    alert('Подію надіслано в PostHog!');
+                }
+            });
+        </script>
+
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>
