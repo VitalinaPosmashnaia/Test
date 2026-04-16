@@ -18,3 +18,11 @@ initTitle();
 
 // 4. Виводимо інформацію про поточний режим (development/production)
 console.log(`%c[UniDone]%c Додаток запущено в режимі: ${import.meta.env.MODE}`, "color: #4CAF50; font-weight: bold", "color: inherit");
+
+window.sendTestEvent = function() {
+    posthog.capture('button_clicked', {
+        message: 'Користувач натиснув на кнопку!'}
+    );
+
+    alert("Подія 'button_clicked' відправлена до PostHog!");
+}
