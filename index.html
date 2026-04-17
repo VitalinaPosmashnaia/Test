@@ -12,6 +12,10 @@
             person_profiles: 'identified_only'
         })
     </script>
+    <script
+        src="https://js-de.sentry-cdn.com/a28ef69407aad8d83b1d80824c1fc53e.min.js"
+        crossorigin="anonymous"
+    ></script>
 </head>
 
 <body> 
@@ -35,6 +39,15 @@
         });
     </script>
 
+    <button onclick="throwNewError()" style="margin-top: 10px; background-color: #e54937; color: white; border: none; padding: 10px;">
+        Зламати сайт (Test Sentry)
+    </button>
+
+    <script>
+    function throwNewError() {
+        throw new Error("Sentry Test Error: " + new Date().toLocaleString());
+    }
+    </script>
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>
