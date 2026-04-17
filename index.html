@@ -19,7 +19,7 @@
 </head>
 
 <body> 
-    <h1>Лабораторна робота №4</h1>
+    <h1>Лабораторна робота №6</h1>
     <h2>CI/CD та автоматизація розгортання</h2>
 
     <button id="test-btn" style="padding: 10px 20px; background-color: #608dba; color: white; border: none; cursor: pointer; border-radius: 5px;">
@@ -44,9 +44,10 @@
     </button>
 
     <script>
-    function throwNewError() {
-        throw new Error("Sentry Test Error: " + new Date().toLocaleString());
-    }
+        function throwNewError() {
+            console.log("Кнопка натиснута, створюємо помилку...");
+            throw new Error("Sentry Test Error: " + new Date().toLocaleString());
+        }
     </script>
     <script type="module" src="/src/main.js"></script>
 </body>
